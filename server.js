@@ -34,34 +34,31 @@ var options = {
     'x-rapidapi-host': 'twelve-data1.p.rapidapi.com'
   }
 };
+let obj={};
 
 function stockData(){axios.request(options).then(function (response) {
-  console.log(response.data);
+  //console.log(response.data);
   {var strJSON = JSON.stringify(response.data);
-    strJSON = strJSON.replace(/"},{"datetime":"/g, ",")
-    strJSON = strJSON.replace(/","open":"/g, ",")
-    strJSON = strJSON.replace(/","high":"/g, ",")
-    strJSON = strJSON.replace(/","low":"/g, ",")
-    strJSON = strJSON.replace(/","close":"/g, ",")
-    strJSON = strJSON.replace(/","volume":"/g, ",")
-    strJSON = strJSON.replace(/"},{"/g, ",")
-    strJSON = strJSON.replace(/{"meta":{/g, "")
-    strJSON = strJSON.replace(/"}],"status":"ok"}/g, "")
-    console.log(( strJSON) );
+    strJSON = strJSON.replace(/{"meta":/, "")
+    strJSON = strJSON.replace(/}/, "")
+    strJSON = strJSON.replace(/,"status":"ok"/, "")
+    //console.log(( strJSON) );
+    strJSON = JSON.parse(strJSON);
+    //console.log(( strJSON) );
+    //let x;
+    //for (x in strJSON);{
+      /*obj= {strJSON.symbol,strJSON.interval,strJSON.currency,strJSON.exchange_timezone,strJSON.exhange,strJSON.type,strJSON.values.datetime,strJSON.values.open,strJSON.values.high,strJSON.values.low,strJSON.values.close,strJSON.values.volume;}*/
+    //}
+    strJSON.values.forEach(function(element){
+      obj= {symbol,interval,currency,exchange_timezone,exhange,type,datetime,open,high,low,close,volume}
+  })
+    console.log(obj);
 
-    fs.writeFileSync('./StocksParsed.txt', strJSON, function (err) {
-        console.log(err);
-    });
-    console.log("printed");
-    }
+  }
+
 }).catch(function (error) {
 	console.error(error);
 });
-
-
-
-
-
 }
 
 
