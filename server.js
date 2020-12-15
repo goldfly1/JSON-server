@@ -13,7 +13,7 @@ app.set('view engine', "ejs");
 //root route
 app.get('/', function (req, res) {
   res.send('Hello World')
-  res.render('index',{username:"kale"});
+  res.render('index',{ticker:tickString});
 });
 
 //boogers route
@@ -44,20 +44,21 @@ let objArray = [];
 let getDataArray =[];
 
 function getData(){axios.request(options).then(function (response) {
+  console.log("Hello Hello");
   for (x=0;x < (response.data.values.length);x++){
       objArray[x]=Object.assign (response.data.meta, response.data.values[x]);
       console.log(objArray[x]);
 
   }
-  //return objArray;
+
 }).catch(function (error) {
     console.error(error);
-  });
+  });//return objArray;
 };
 
 //stockData("hog","10min","10","json");
 getData();{
-   getDataArray=objArray;
+
 console.log(getDataArray + "piggy");
 }
 /*  open stream/ download file   3 different files/streams */
@@ -82,9 +83,21 @@ console.log(getDataArray + "piggy");
 
 
 //function ticker(symbol,open,last){
-  /* Stock ticker
-  it's a string crawling across the div when it gets long enough start clipping off it's nose*/
-  
+  let tickString;
+  function stockTicker(){
+
+    for (x=0;;x++){
+      tickString=objArray[0,x+3] +"  "+objArray[0,x+1]+"  "+objArray[0,x+2]+"  "+objArray[0,x]+"  "+objArray[0,x+4]+"  "+objArray[0,x+5];
+      if (x=objArray.length - 1){
+        x=0;
+      }
+      //console.log(tickString);
+    }
+
+  }
+  //stockTicker();
+  /*it's a string crawling across the div when it gets long enough start clipping off it's nose*/
+
  // }
  // function picks(symbol,name,weekly){
   /* USE S&P 500 I GUESS
