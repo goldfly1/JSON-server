@@ -23,7 +23,7 @@
         <header class="col-md-6 p-0 text-center">
           <img  src="./assets/images/top.jpg"  alt="Midnight Stockers">
           <div class="bg-white by-2">
-            this is where the ticker goes
+            this is where the ticker goes<% "tickString"%>
           </div>
         </header>
         <div class="col-md-1 bg-success p-0">button</div>
@@ -38,7 +38,14 @@
 
         <div id="picks" class="col-md-6 h-100 bg-white p-0 m-0">
           <H2>Gonna BUY Now....</H2>
-          <ul>
+          <ul><% "buysOfTheWeek"%>
+            <li>ROG 1003 1/4 </li>
+            <li>MFST 1003 1/4 </li>
+            <li>HOG 1003 1/4 </li>
+            <li>TLSA 1003 1/4 </li>
+            <li>KALA 1003 1/4 </li>
+            <li>ROG 1003 1/4 </li>
+            <li>ROG 1003 1/4 </li>
             <li>MFST 1003 1/4 </li>
             <li>HOG 1003 1/4 </li>
             <li>TLSA 1003 1/4 </li>
@@ -47,11 +54,12 @@
           </ul>
         </div>
         <div id="news" class="col-md-3 h-100 bg-light p-0 m-0">
-          <div class="card-img-top w-100 x-0 y-0"></div>
+          <div class="card-img-top w-100 x-0 y-0">
           <h4>This is what Trump means by Fake News</h4>
-          <p>Voluptate cupiditate rerum ratione consectetur debitis repellat amet consequatur, ut fugit et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing e ut fugit et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. t amet consequatur, ut fugit et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!</p>
+          <p><% "toastCard1"%>  Voluptate cupiditate rerum ratione consectetur debitis repellat amet consequatur, ut fugit et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!</p>
+          <p><% "toastCard2"%>  Lorem, ipsum dolor sit amet consectetur adipisicing e ut fugit et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!</p>
+          <p><% "toastCard3"%>   Lorem, ipsum dolor sit amet consectetur adipisicing elit. t amet consequatur, ut fugit et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!</p>
+        </div>
           </div>
         <p class="col-md-12 text-center bg-white m-0" > Past performance does not guarantee future results.</p>
         <p class="col-md-12 text-center bg-white m-0" > Trading is a high-risk business.  You should trade only with funds whose loss will not impact your lifestyle.</p>
