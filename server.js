@@ -34,32 +34,19 @@ var options = {
     'x-rapidapi-host': 'twelve-data1.p.rapidapi.com'
   }
 };
-let obj={};
+let objArray = [];
 
 function stockData(){axios.request(options).then(function (response) {
-  //console.log(response.data);
-  {var strJSON = JSON.stringify(response.data);
-    strJSON = strJSON.replace(/{"meta":/, "")
-    strJSON = strJSON.replace(/}/, "")
-    strJSON = strJSON.replace(/,"status":"ok"/, "")
-    //console.log(( strJSON) );
-    strJSON = JSON.parse(strJSON);
-    //console.log(( strJSON) );
-    //let x;
-    //for (x in strJSON);{
-      /*obj= {strJSON.symbol,strJSON.interval,strJSON.currency,strJSON.exchange_timezone,strJSON.exhange,strJSON.type,strJSON.values.datetime,strJSON.values.open,strJSON.values.high,strJSON.values.low,strJSON.values.close,strJSON.values.volume;}*/
-    //}
-    strJSON.values.forEach(function(element){
-      obj= {symbol,interval,currency,exchange_timezone,exhange,type,datetime,open,high,low,close,volume}
-  })
-    console.log(obj);
 
+console.log(response.data.values.length);
+  for (x=0;x < (response.data.values.length);x++){
+      objArray[x]=Object.assign (response.data.meta, response.data.values[x]);
   }
-
 }).catch(function (error) {
-	console.error(error);
-});
-}
+    console.error(error);
+  });
+};
+
 
 
 //stockData("hog","10min","10","json");
