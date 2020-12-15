@@ -6,8 +6,7 @@ const  port = 3000;
 
 //Middleware
 app.set('view engine', "ejs");
-
-
+app.use(express.static("./public"));
 //Routes
 
 //root route
@@ -87,7 +86,7 @@ console.log(getDataArray + "piggy");
   function stockTicker(){
 
     for (x=0;;x++){
-      tickString=objArray[0,x+3] +"  "+objArray[0,x+1]+"  "+objArray[0,x+2]+"  "+objArray[0,x]+"  "+objArray[0,x+4]+"  "+objArray[0,x+5];
+      tickString=objArray[0,x] +"  "+objArray[0,x+1]+"  "+objArray[0,x+2]+"  "+objArray[0,x]+"  "+objArray[0,x+4]+"  "+objArray[0,x+5];
       if (x=objArray.length - 1){
         x=0;
       }
