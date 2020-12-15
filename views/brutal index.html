@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Brutal Hangman</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body class= "bg-dark mx-0 px-0">
+
+
+
+
+  <div class="container mt-1 bg-danger" id = "top">
+    <div id= "header">
+      <img src="assets/images/top.jpg" class="card-img-top w=100" alt="The Brutal Dirty Dozen Hangman"></div>
+    </div>
+      <div class="row" id = "below">
+        <div class="col-md-1"  id = "left">
+        </div>
+        <div id="guessedImg" class="col-md-10 row mx-auto"  >
+          <div class="row  row mx-auto" >
+            <div  class="card h-85  mx-auto" style="width: 18rem;" >
+              <img src="assets/images/guessed.jpg" class="card-img-top" alt="Guessed">
+              <div class="card-body">
+                <h4 class="card-text" id="guessed">Already guessed</h4>
+              </div>
+            </div>
+            <div id="wordImg" class="card h-85  mx-auto" style="width: 18rem;">
+              <img src="assets/images/word.jpg" class="card-img-top" alt="The WORD">
+              <div class="card-body">
+                <h4  class="card-text" id="word">The WORD</h4>
+              </div>
+            </div>
+            <div  class="card h-85 mx-auto" style="width: 18rem;">
+              <img src="assets/images/steps.jpg" class="card-img-top" alt="Missed">
+              <div class="card-body">
+                <h4  class="card-text"  id="steps">Steps remaining</h4>
+              </div>
+            </div>
+            <div class="col-md-12  text-center  bg-white" >
+              <h3 class="" id = "billboard" >Keep telling them you're innocent!</h3>
+            </div >
+            <p class="col-md-12 text-center bg-white " > &copyMMXX Gonkulishus</p>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+          <div class="col-md-1" id = "right">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>

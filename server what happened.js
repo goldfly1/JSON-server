@@ -1,25 +1,21 @@
 const express = require('express');
-const axios = require("axios").default;
-const fs = require('fs');
 const app = express();
 const  port = 3000;
 
 //Middleware
 app.set('view engine', "ejs");
-
+res.render("views/index",{userName:"kale"});
 
 //Routes
 
 //root route
 app.get('/', function (req, res) {
   res.send('Hello World')
-  res.render('index',{username:"kale"});
 });
 
 //boogers route
-app.get('/midnight', function(req,res){
+app.get('/boogers', function(req,res){
     res.render('index.ejs');
-
 });
 
 app.listen(port, function () {
@@ -28,13 +24,13 @@ app.listen(port, function () {
 
 //stock data aggretion
 
-
+var axios = require("axios").default;
 
 var options = {
   method: 'GET',
   url: 'https://twelve-data1.p.rapidapi.com/time_series',
   //'AAPL, AMZN, IBM, MSFT, AI, TSLA, HOG, FFIV, HELE, KALA, ROG'
-  params: {symbol: 'ROG', interval: '1day', outputsize: '30', format: 'json'},
+  params: {symbol: 'AAPL', interval: '1day', outputsize: '30', format: 'json'},
   headers: {
     'x-rapidapi-key': '30b20b11demshf65fd60638895c6p17e8ccjsn0b391d09b80f',
     'x-rapidapi-host': 'twelve-data1.p.rapidapi.com'
@@ -44,6 +40,8 @@ let objArray = [];
 let getDataArray =[];
 
 function getData(){axios.request(options).then(function (response) {
+
+console.log(response);
   for (x=0;x < (response.data.values.length);x++){
       objArray[x]=Object.assign (response.data.meta, response.data.values[x]);
       console.log(objArray[x]);
@@ -132,16 +130,21 @@ console.log(getDataArray + "piggy");
          tickerListArray = "IBM", "MSFT", "AI", "TSLA", "HOG", "NPM", "FFIV", "HELE", "KALA", "ROG",;
          Run the ticker use a string;
   }*/
-  function write(writeThis,filename){
-  fs.writeFile(filename+'.txt', writeThis, function(err) {
+  function write(writeThis){
+  fs.writeFile('input.txt', writeThis, function(err) {
     if (err) {
        return console.error(err);
     }
     console.log("Data written successfully!");
+    console.log("Let's read newly written data");
+    // Read the newly written file and print all of its content on the console
+    fs.readFile('input.txt', function (err, data) {
        if (err) {
           return console.error(err);
        }
-      });
+       console.log("Asynchronous read: " + data.toString());
+    });
+ });
   }
   //*End Function Declarations*//
   
