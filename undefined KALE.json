@@ -1,0 +1,5 @@
+{
+  "code": 400,
+  "message": "Key: 'QuoteListParametersDefault.QuoteListParameters.Symbol' Error:Field validation for 'Symbol' failed on the 'required' tag",
+  "status": "error"
+}
