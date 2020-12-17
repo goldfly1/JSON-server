@@ -49,31 +49,33 @@ let Xsymbol = [];
 //let Xoutputsize = 30;
 x = 0;
 for (Xsymbol of symbolArray) {
-  console.log(Xsymbol + " kale");
   fs.readFile("./data/" + Xsymbol + ".json", function (err, data) {
-    jsonData = data;
+    jsonData=(JSON.parse(data));
     // Make the calculations and append it to the array
-    console.log(jsonData.value.length());
-    picksArray[(x, 0)] = jsonData.value;
-    picksArray[(x, 1)] = jsonData.value;
-    picksArray[(x, 2)] = jsonData.value;
+    picksArray[x,0] = jsonData.meta[0];
+    picksArray[x,1] = jsonData.values[x,3];
+    picksArray[x,2] = jsonData.values[x,4];
     if (err) {
       console.log("Error while reading file " + err);
     }
+    console.log(picksArray.values.length);
+    console.log(picksArray);
+    fs.appendFileSync(
+      "./data/Picks " + todaysDate + ".json",
+      JSON.stringify(picksArray,null,2),
+      (err) => {
+        if (err) console.log("Error writing file:", err);
+      }
+    );
+  
+    console.log(picksArray[x] + "kale was here");
+
   });
 
   // write the new file of calculations from the array
-  console.log(picksArray[x] + "kale was here");
+  //console.log(picksArray[x,0] + "kale was here");
 
-  fs.appendFileSync(
-    "./data/Picks " + todaysDate + ".json",
-    JSON.stringify(picksArray),
-    (err) => {
-      if (err) console.log("Error writing file:", err);
-    }
-  );
 
-  console.log(picksArray[x] + "kale was here");
 }
 /*  as you read file act on data   build sorted arrays of picked (buy or sell) stocks  OR display news / tickers    */
 /* end of data close file /stream   */
