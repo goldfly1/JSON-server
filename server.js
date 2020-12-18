@@ -51,15 +51,18 @@ x = 0;
 for (Xsymbol of symbolArray) {
   fs.readFile("./data/" + Xsymbol + ".json", function (err, data) {
     jsonData=(JSON.parse(data));
+    let jvDATA= jsonData.values;
     // Make the calculations and append it to the array
-    picksArray[x,0] = jsonData.meta[0];
-    picksArray[x,1] = jsonData.values[x,3];
-    picksArray[x,2] = jsonData.values[x,4];
+    picksArray[x,0] = jsonData.meta.symbol;
+    picksArray[x,1] = jvDATA[x].datetime;
+    picksArray[x,2] = jvDATA[x].close;
+    console.log(jsonData.meta.symbol);
+    console.log(jvDATA[x].datetime);
+    console.log(jvDATA[x].close);
     if (err) {
       console.log("Error while reading file " + err);
     }
-    console.log(picksArray.values.length);
-    console.log(picksArray);
+    //console.log(jsonData);
     fs.appendFileSync(
       "./data/Picks " + todaysDate + ".json",
       JSON.stringify(picksArray,null,2),
