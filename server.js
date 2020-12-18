@@ -54,11 +54,14 @@ for (Xsymbol of symbolArray) {
     let jvDATA= jsonData.values;
     // Make the calculations and append it to the array
     picksArray[x,0] = jsonData.meta.symbol;
-    picksArray[x,1] = jvDATA[x].datetime;
-    picksArray[x,2] = jvDATA[x].close;
+    picksArray[x,1] = jvDATA[0].close > jvDATA[5].close &&
+                      jvDATA[5].close > jvDATA[20].close ? picksArray[x,1] = 1 :// BUY
+        picksArray[x,1] = jvDATA[0].close < jvDATA[5].close && // SELL
+                          jvDATA[5].close < jvDATA[20].close ?  2  : 3;// NEUTRAL
+    picksArray[x,2] = jvDATA[x];
     console.log(jsonData.meta.symbol);
-    console.log(jvDATA[x].datetime);
-    console.log(jvDATA[x].close);
+    console.log(picksArray[x,1]);
+    console.log(jvDATA[0].close +"  "+ jvDATA[5].close +"  "+ jvDATA[20].close);
     if (err) {
       console.log("Error while reading file " + err);
     }
