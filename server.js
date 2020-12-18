@@ -12,10 +12,10 @@ app.use(express.static("./public"));
 //root route
 app.get("/", function (req, res) {
   res.send("Hello World");
-  res.render("index", { ticker: tickString });
+  res.render("index", { ticker: tickString, news: newsfeed, });
 });
 
-//boogers route
+//midnight route
 app.get("/midnight", function (req, res) {
   res.render("index.ejs");
 });
@@ -26,8 +26,6 @@ app.listen(port, function () {
 
 //stock data open and calculate
 jsonData = {};
-var d = new Date();
-let todaysDate = (d.getFullYear+" "+d.getMonth+" "+d.getDate)
 picksArray=[];
 // These 4 items will be inputs from DB/user
 let symbolArray = [
@@ -65,23 +63,14 @@ for (Xsymbol of symbolArray) {
     if (err) {
       console.log("Error while reading file " + err);
     }
-    //console.log(jsonData);
     fs.appendFileSync(
-      "./data/Picks " + todaysDate + ".json",
+      "./data/Picks.json",
       JSON.stringify(picksArray,null,2),
       (err) => {
         if (err) console.log("Error writing file:", err);
       }
     );
-  
-    console.log(picksArray[x] + "kale was here");
-
   });
-
-  // write the new file of calculations from the array
-  //console.log(picksArray[x,0] + "kale was here");
-
-
 }
 /*  as you read file act on data   build sorted arrays of picked (buy or sell) stocks  OR display news / tickers    */
 /* end of data close file /stream   */

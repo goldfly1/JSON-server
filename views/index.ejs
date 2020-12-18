@@ -1,72 +1,151 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  </head>
-  <body class= "bg-dark mx-0 px-0"></body>
-    <div>
-      <div class="row">
+<html lang="en">
+<head>
+  <title>Midnight Stockers</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-        <div class="col-md-1 bg-success p-0">button</div>
-        <div class="col-md-1 p-0">button</div>
-        <div class="col-md-1 bg-success p-0">button</div>
-        <header class="col-md-6 p-0 text-center">
-          <img  src="top.jpg"  alt="Midnight Stockers">
-          <div class="bg-white by-2">
-            this is where the ticker goes<% "tickString"%>
-          </div>
-        </header>
-        <div class="col-md-1 bg-success p-0">button</div>
-        <div class="col-md-1 p-0">button</div>
-        <div class="col-md-1 bg-success p-0">button</div>
-      </div>
-      <div class="row h-100">
-                <div  id="ads" class="col-md-3 h-100 bg-light p-0 m-0">
-          <script type="text/javascript" src="https://static.stooq.com/pp/wc.js"></script>
+  <script> </script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
 
-        </div>
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    /*.row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+  </style>
+</head>
+<body>
 
-        <div id="picks" class="col-md-6 h-100 bg-white p-0 m-0">
-          <H2>Gonna BUY Now....</H2>
-          <ul><% "buysOfTheWeek"%>
-            <li>ROG 1003 1/4 </li>
-            <li>MFST 1003 1/4 </li>
-            <li>HOG 1003 1/4 </li>
-            <li>TLSA 1003 1/4 </li>
-            <li>KALA 1003 1/4 </li>
-            <li>ROG 1003 1/4 </li>
-            <li>ROG 1003 1/4 </li>
-            <li>MFST 1003 1/4 </li>
-            <li>HOG 1003 1/4 </li>
-            <li>TLSA 1003 1/4 </li>
-            <li>KALA 1003 1/4 </li>
-            <li>ROG 1003 1/4 </li>
-          </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img src="top.jpg" class="rounded float-left" alt="Midnight Stockers Logo">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
-        <div id="news" class="col-md-3 h-100 bg-light p-0 m-0">
-          <div class="card-img-top w-100 x-0 y-0">
-          <h4>This is what Trump means by Fake News</h4>
-          <p><% "toastCard1"%>  Voluptate cupiditate rerum ratione consectetur debitis repellat amet consequatur, ut fugit et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!</p>
-          <p><% "toastCard2"%>  Lorem, ipsum dolor sit amet consectetur adipisicing e ut fugit et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!</p>
-          <p><% "toastCard3"%>   Lorem, ipsum dolor sit amet consectetur adipisicing elit. t amet consequatur, ut fugit et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!</p>
-        </div>
-          </div>
-        <p class="col-md-12 text-center bg-white m-0" > Past performance does not guarantee future results.</p>
-        <p class="col-md-12 text-center bg-white m-0" > Trading is a high-risk business.  You should trade only with funds whose loss will not impact your lifestyle.</p>
-        <p class="col-md-12 text-center bg-white m-0" > Actually.... maybe you should just go to Las Vegas.</p>
-        <p class="col-md-12 text-center bg-white m-0" > &copyMMXX The Midnight Stockers</p>
-      </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center h-100">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <h4>This is what Trump means by Fake News</h4>
+        <p>
+          <% "toastCard1" %> Voluptate cupiditate rerum ratione consectetur debitis repellat amet consequatur, ut fugit
+            et molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!
+        </p>
+        <p>
+          <% "toastCard2" %> Lorem, ipsum dolor sit amet consectetur adipisicing e ut fugit et molestiae dicta dolore
+            eos eum ducimus totam quaerat explicabo magni!
+        </p>
+        <p>
+          <% "toastCard3" %> Lorem, ipsum dolor sit amet consectetur adipisicing elit. t amet consequatur, ut fugit et
+            molestiae dicta dolore eos eum ducimus totam quaerat explicabo magni!
+        </p>
     </div>
-    <script src="assets/javascript/index.js" async defer></script>
-  </body>
+    <div class="col-sm-6 text-left container-fluid h-100">
+      <p>Lorem ipsum...</p>
+      <H2>Gonna BUY Now....</H2>
+      <ul>
+        <% "buysOfTheWeek" %>
+          <li>ROG 1003 1/4 </li>
+          <li>MFST 1003 1/4 </li>
+          <li>HOG 1003 1/4 </li>
+          <li>TLSA 1003 1/4 </li>
+          <li>KALA 1003 1/4 </li>
+          <li>ROG 1003 1/4 </li>
+          <li>ROG 1003 1/4 </li>
+          <li>MFST 1003 1/4 </li>
+          <li>HOG 1003 1/4 </li>
+          <li>TLSA 1003 1/4 </li>
+          <li>KALA 1003 1/4 </li>
+          <li>ROG 1003 1/4 </li>
+      </ul>
+      <div><table border="0"><tr><td><a href="https://www.aistockcharts.com"><img src="https://www.aistockcharts.com/aistockchart.cgi?t=msft&bb=20,2&sma2=10&macd=12,26,9&rsi2=14" border="0"></a></td></tr><tr><td align="right"><a style="font-size: 10px; font-family: verdana; color: #000650" href="https://www.aistockcharts.com" target="_blank">Chart Courtesy AiStockCharts.com</a></td></tr></table></div>
+    </div>
+    <div>
+      <div class="well">
+        <A HREF="http://www.kitco.com/connectndx.html">
+          <IMG SRC="http://www.weblinks247.com/indexes/idx24_russell_en_2.gif" BORDER="0" ALT="[Most Recent RUSSELL from www.kitco.com]">
+        </A>
+      </div>
+      <div class="well">
+        <A HREF="http://www.kitco.com/connectndx.html">
+          <IMG SRC="http://www.weblinks247.com/indexes/idx24_russell_en_2.gif" BORDER="0" ALT="[Most Recent RUSSELL from www.kitco.com]">
+        </A>
+      </div>
+      <div class="well">
+        <A HREF="http://www.kitco.com/connectndx.html">
+          <IMG SRC="http://www.weblinks247.com/indexes/idx24_nyse_en_2.gif" BORDER="0" ALT="[Most Recent RUSSELL from www.kitco.com]">
+        </A>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p class=" text-center m-0 w-100"> Past performance does not guarantee future results.</p>
+    <p class=" text-center m-0 w-100"> Trading is a high-risk business. You should trade only with funds
+      whose loss will not impact your lifestyle.</p>
+    <p class=" text-center m-0 w-100"> Actually.... maybe you should just go to Las Vegas.</p>
+    <p class=" text-center m-0 w-100"> &copyMMXX The Midnight Stockers</p>
+</footer>
+<script src="assets/javascript/index.js" async defer></script>
+</body>
 </html>
