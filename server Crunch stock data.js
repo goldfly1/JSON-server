@@ -12,7 +12,7 @@ app.use(express.static("./public"));
 //root route
 app.get("/", function (req, res) {
   res.send("Hello World");
-  res.render("index", { ticker: tickString, news: newsfeed, sort: pickem });
+  res.render("index", { ticker: tickString, news: newsfeed, });
 });
 
 //midnight route
@@ -25,56 +25,48 @@ app.listen(port, function () {
 });
 
 //stock data open and calculate
-
+jsonData = {};
+picksArray=[];
 // These 4 items will be inputs from DB/user
 let symbolArray = [
-  "AAPL","AAPL1",
-  "AMZN","AMZN1",
-  "IBM","IBM1",
-  "MSFT","MSFT1",
-  "AI","AI1",
-  "TSLA","TSLA1",
-  "HOG","HOG1",
-  "FFIV","FFIV1",
-  "HELE","HELE1",
-  "KALA","KALA1",
-  "ROG","ROG1",
+  "AAPL",
+  "AMZN",
+  "IBM",
+  "MSFT",
+  "AI",
+  "TSLA",
+  "HOG",
+  "FFIV",
+  "HELE",
+  "KALA",
+  "ROG",
 ];
 let Xsymbol = [];
 //These are here for future use
 //let Xinterval = "1day";
 //let Xoutputsize = 30;
-let x = 0;
-let counter=0;
-
-
-sortem=[];
+x = 0;
+pickem={};
 for (Xsymbol of symbolArray) {
   fs.readFile("./data/" + Xsymbol + ".json", function (err, data) {
-    let pickem={};
-    let jsonData=(JSON.parse(data));
+    jsonData=(JSON.parse(data));
     let jvDATA= jsonData.values;
     // Make the calculations and append it to the array
-    pickem.buy = jvDATA[0].close > jvDATA[4].close &&
-                      jvDATA[4].close > jvDATA[19].close ?  1 :// BUY
-        pickem.buy = jvDATA[0].close < jvDATA[4].close && // SELL
-                          jvDATA[4].close < jvDATA[19].close ?  2  : 3;// NEUTRAL
-
-                          pickem.symbol= jsonData.meta.symbol;
-                          pickem.data = jvDATA[x];
-
-    sortem.push(pickem);
-    if (Xsymbol==="ROG1") {sortem.sort();}
-    console.log(jsonData.symbol);
-    //console.log(sortem);
+    pickem.symbol= jsonData.meta.symbol;
+    pickem.buy = jvDATA[0].close > jvDATA[5].close &&
+                      jvDATA[5].close > jvDATA[20].close ? picksArray[x,1] = 1 :// BUY
+        pickem.buy = jvDATA[0].close < jvDATA[5].close && // SELL
+                          jvDATA[5].close < jvDATA[20].close ?  2  : 3;// NEUTRAL
+    pickem.data = jvDATA[x];
     console.log(jsonData.meta.symbol);
-    console.log(jvDATA[0].close +"  "+ jvDATA[4].close +"  "+ jvDATA[19].close);
+    console.log(picksArray[x,1]);
+    console.log(jvDATA[0].close +"  "+ jvDATA[5].close +"  "+ jvDATA[20].close);
     if (err) {
       console.log("Error while reading file " + err);
     }
-    fs.writeFileSync(
+    fs.appendFileSync(
       "./data/Picks.json",
-      JSON.stringify(sortem,null,2),
+      JSON.stringify(pickem,null,2),
       (err) => {
         if (err) console.log("Error writing file:", err);
       }
