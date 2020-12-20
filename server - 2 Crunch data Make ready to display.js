@@ -12,76 +12,78 @@ app.use(express.static("./public"));
 //root route
 app.get("/", function (req, res) {
   res.send("Hello World");
-  res.render("index", { ticker: tickString, news: newsfeed, list: sorted });
+  res.render("index", { ticker: tickString, news: newsfeed, sort: pickem });
 });
 
 //midnight route
 app.get("/midnight", function (req, res) {
-  res.render("midnight.ejs");
-});
-//listings route
-app.get("/listings", function (req, res) {
-  res.render("listings");
-});
-//accountabout route
-app.get("/account", function (req, res) {
-  res.render("account");
-});
-//about route
-app.get("/about", function (req, res) {
-  res.render("about");
+  res.render("index.ejs");
 });
 
 app.listen(port, function () {
   console.log("server is live on port:" + port);
 });
 
-let buyList=[];
-let sellList=[];
-let nuetralList=[];
-let sorted=[];
-let Xsymbol=[];
+//stock data open and calculate
 
-  fs.readFile("./data/picks.json", function (err, data) {
+// These 4 items will be inputs from DB/user
+let symbolArray = [
+  "AAPL","AAPL1",
+  "AMZN","AMZN1",
+  "IBM","IBM1",
+  "MSFT","MSFT1",
+  "AI","AI1",
+  "TSLA","TSLA1",
+  "HOG","HOG1",
+  "FFIV","FFIV1",
+  "HELE","HELE1",
+  "KALA","KALA1",
+  "ROG","ROG1",
+];
+let Xsymbol = [];
+//These are here for future use
+//let Xinterval = "1day";
+//let Xoutputsize = 30;
+let x = 0;
+let counter=0;
+
+
+sortem=[];
+for (Xsymbol of symbolArray) {
+  fs.readFile("./data/" + Xsymbol + ".json", function (err, data) {
+    let pickem={};
+    let jsonData=(JSON.parse(data));
+    let jvDATA= jsonData.values;
+    // Make the calculations and append it to the array
+    pickem.buy = jvDATA[0].close > jvDATA[4].close &&
+                      jvDATA[4].close > jvDATA[19].close ?  1 :// BUY
+        pickem.buy = jvDATA[0].close < jvDATA[4].close && // SELL
+                          jvDATA[4].close < jvDATA[19].close ?  2  : 3;// NEUTRAL
+
+                          pickem.symbol= jsonData.meta.symbol;
+                          pickem.data = jvDATA[x];
+
+    sortem.push(pickem);
+    if (Xsymbol==="ROG1") {sortem.sort();}
+
+
+
+
+
+
+
     if (err) {
       console.log("Error while reading file " + err);
     }
-    let jsonData=(JSON.parse(data));
-    let jvDATA= jsonData.values;
-
-    // Prepare the listings
-    for (Xsymbol of jsonData){
-      let listData={}
-      listData.buy=Xsymbol.buy;
-      listData.symbol=Xsymbol.symbol;
-      listData.close=Xsymbol.data.close;
-      listData.volume=Xsymbol.data.volume;
-      if (listData.buy === 1){ buyList.push(listData)}
-      else if (listData.buy === 2){ sellList.push(listData)}
-        else if(listData.buy === 3){ nuetralList.push(listData) }
-
-          console.log(buyList)
-          console.log("kale was buying here")
-          console.log(sellList)
-          console.log("kale was selling here")
-          console.log(nuetralList)
-          console.log("kale was not here")
-    }
-    //The lists are ready to publish
-    sorted=buyList.concat(sellList,nuetralList);
-    console.log(sorted);
-
-
-    /*fs.writeFileSync(
+    fs.writeFileSync(
       "./data/Picks.json",
       JSON.stringify(sortem,null,2),
       (err) => {
         if (err) console.log("Error writing file:", err);
       }
-    );*/
+    );
   });
-  console.log(sorted);
-
+}
 /*  as you read file act on data   build sorted arrays of picked (buy or sell) stocks  OR display news / tickers    */
 /* end of data close file /stream   */
 /*    user buttons to accept stock picks  */
