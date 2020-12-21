@@ -35,8 +35,9 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-white bg-dark color-white">
-  <img src="top.jpg" class="rounded float-left" alt="Midnight Stockers Logo">
+  <div class="col-sm-6 bg-dark"> <img src="top.jpg" class="rounded float-left img-fluid" alt="Midnight Stockers Logo">
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-white bg-dark  text-center pr-0">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -44,12 +45,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="midnight">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/midnight">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="listings">Extended listings <span class="sr-only">(current)</span></a>
+      <li class="nav-item active border-right border-left">
+        <a class="nav-link" href="/listings">Extended listings <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item active border-right">
         <a class="nav-link" href="account">User Account <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
@@ -58,7 +59,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="login" placeholder="Login" aria-label="Login">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
     </form>
   </div>
 </nav>
@@ -66,23 +67,29 @@
 <div class="container-fluid text-center h-100">
   <div class="row content">
     <div>
-      <div class="item_container">
-        </div>
-
-
     </div>
         <div class="col-sm-6 text-left container-fluid h-100">
-      <p>Lorem ipsum...</p>
-      <H2>Buys of the Week....</H2>
-      <ul><h3>
-          <li>MFST 1003 1/4 </li>
-          <li>HOG 1003 1/4 </li>
-          <li>TLSA 1003 1/4 </li>
-          <li>KALA 1003 1/4 </li>
-          <li>ROG 1003 1/4 </li>
-      </h3>
+          <H2>Power Prognostication</H2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Close</th>
+                <th>Volume</th>
+                <th>1= Buy<br>2= Sell</th>
+              </tr>
+            </thead>
+            <tbody>
 
-      </ul>
+                <% list.forEach (x => {%>
+              <tr><td> <%= x.symbol%></td>
+                  <td> <%= x.close%></td>
+                  <td> <%= x.volume%></td>
+                  <td> <%= x.buy%></td>
+              </tr> <% });%>
+
+            </tbody>
+          </table>
       <footer>
         <div class="btn-group btn-group-lg m-auto" role="group" aria-label="...">
           <button type="button" class="btn btn-primary btn-lg">Accept</button>
@@ -91,8 +98,8 @@
       </footer>
 
     </div>
-    <div class="col-sm-6 ">
-      <div><table border="0"><tr><td><a href="https://www.aistockcharts.com"><img src="https://www.aistockcharts.com/aistockchart.cgi?t=msft&bb=20,2&sma2=10&macd=12,26,9&rsi2=14" border="0"></a></td></tr><tr><td align="right"><a style="font-size: 10px; font-family: verdana; color: #000650" href="https://www.aistockcharts.com" target="_blank">Chart Courtesy AiStockCharts.com</a></td></tr></table></div>
+    <div class="col-sm-6 container-fluid "><table border="0"><tr><td><a href="https://www.aistockcharts.com"><img class="img-fluid" src="https://www.aistockcharts.com/aistockchart.cgi?t=<%=list[0].symbol%>&>bb=20,2&sma2=10&macd=12,26,9&rsi2=14" border="0"></a></td></tr><tr><td align="right"><a style="font-size: 10px; font-family: verdana; color: #000650" href="https://www.aistockcharts.com" target="_blank">Chart Courtesy AiStockCharts.com</a></td></tr></table></div>
+  </div>
     </div>
   </div>
 </div>

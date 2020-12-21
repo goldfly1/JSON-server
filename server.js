@@ -3,6 +3,7 @@ const axios = require("axios").default;
 const fs = require("fs");
 const app = express();
 const port = 3000;
+let sorted=[];
 
 //Middleware
 app.set("view engine", "ejs");
@@ -11,17 +12,23 @@ app.use(express.static("./public"));
 
 //root route
 app.get("/", function (req, res) {
-  res.send("Hello World");
-  res.render("index", { ticker: tickString, news: newsfeed, list: sorted });
+  fs.readFile("./data/sorted.json", function (err, data) {
+    if (err) {
+      console.log("Error while reading file " + err);
+    }
+    let sorted=(JSON.parse(data));
+  });
+  res.render("midnight",{  list: sorted } );
 });
 
 //midnight route
 app.get("/midnight", function (req, res) {
-  res.render("midnight.ejs");
+
+  res.render("midnight.ejs", { news: newsfeed, list: sorted, ticker: tickString });
 });
 //listings route
 app.get("/listings", function (req, res) {
-  res.render("listings");
+  res.render("listings",{  list: sorted });
 });
 //accountabout route
 app.get("/account", function (req, res) {
@@ -39,7 +46,6 @@ app.listen(port, function () {
 let buyList=[];
 let sellList=[];
 let nuetralList=[];
-let sorted=[];
 let Xsymbol=[];
 
   fs.readFile("./data/picks.json", function (err, data) {
@@ -72,15 +78,14 @@ let Xsymbol=[];
     console.log(sorted);
 
 
-    /*fs.writeFileSync(
-      "./data/Picks.json",
-      JSON.stringify(sortem,null,2),
+    fs.writeFileSync(
+      "./data/sorted.json",
+      JSON.stringify(sorted,null,2),
       (err) => {
         if (err) console.log("Error writing file:", err);
       }
-    );*/
+    );
   });
-  console.log(sorted);
 
 /*  as you read file act on data   build sorted arrays of picked (buy or sell) stocks  OR display news / tickers    */
 /* end of data close file /stream   */

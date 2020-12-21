@@ -1,0 +1,134 @@
+[
+  {
+    "buy": 1,
+    "symbol": "FFIV",
+    "close": "171.20000",
+    "volume": "727800"
+  },
+  {
+    "buy": 1,
+    "symbol": "dumr",
+    "close": "171.20000",
+    "volume": "727800"
+  },
+  {
+    "buy": 1,
+    "symbol": "HELE",
+    "close": "214.35001",
+    "volume": "209389"
+  },
+  {
+    "buy": 1,
+    "symbol": "domr",
+    "close": "214.35001",
+    "volume": "209389"
+  },
+  {
+    "buy": 1,
+    "symbol": "KALA",
+    "close": "7.64000",
+    "volume": "2172350"
+  },
+  {
+    "buy": 1,
+    "symbol": "dumm",
+    "close": "7.64000",
+    "volume": "2172350"
+  },
+  {
+    "buy": 2,
+    "symbol": "MSFT",
+    "close": "214.20000",
+    "volume": "27113407"
+  },
+  {
+    "buy": 2,
+    "symbol": "dume",
+    "close": "214.20000",
+    "volume": "27113407"
+  },
+  {
+    "buy": 3,
+    "symbol": "AAPL",
+    "close": "121.78000",
+    "volume": "79075988"
+  },
+  {
+    "buy": 3,
+    "symbol": "dumb",
+    "close": "121.78000",
+    "volume": "79075988"
+  },
+  {
+    "buy": 3,
+    "symbol": "AMZN",
+    "close": "3156.96997",
+    "volume": "4155794"
+  },
+  {
+    "buy": 3,
+    "symbol": "domb",
+    "close": "3156.96997",
+    "volume": "4155794"
+  },
+  {
+    "buy": 3,
+    "symbol": "IBM",
+    "close": "123.53000",
+    "volume": "4565507"
+  },
+  {
+    "buy": 3,
+    "symbol": "dumy",
+    "close": "123.53000",
+    "volume": "4565507"
+  },
+  {
+    "buy": 3,
+    "symbol": "AI",
+    "close": "102.36000",
+    "volume": "8088571"
+  },
+  {
+    "buy": 3,
+    "symbol": "dum",
+    "close": "102.36000",
+    "volume": "8088571"
+  },
+  {
+    "buy": 3,
+    "symbol": "TSLA",
+    "close": "639.83002",
+    "volume": "51113780"
+  },
+  {
+    "buy": 3,
+    "symbol": "domb",
+    "close": "639.83002",
+    "volume": "51113780"
+  },
+  {
+    "buy": 3,
+    "symbol": "HOG",
+    "close": "36.26000",
+    "volume": "1979185"
+  },
+  {
+    "buy": 3,
+    "symbol": "dumi",
+    "close": "36.26000",
+    "volume": "1979185"
+  },
+  {
+    "buy": 3,
+    "symbol": "ROG",
+    "close": "152.81000",
+    "volume": "1012"
+  },
+  {
+    "buy": 3,
+    "symbol": "domm",
+    "close": "152.81000",
+    "volume": "1012"
+  }
+]

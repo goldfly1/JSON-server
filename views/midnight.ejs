@@ -35,8 +35,9 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-white bg-dark color-white">
-  <img src="top.jpg" class="rounded float-left" alt="Midnight Stockers Logo">
+  <div class="col-sm-6 bg-dark"> <img src="top.jpg" class="rounded float-left img-fluid" alt="Midnight Stockers Logo">
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-white bg-dark  text-center pr-0">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -46,10 +47,10 @@
       <li class="nav-item active">
         <a class="nav-link" href="/midnight">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item active border-right border-left">
         <a class="nav-link" href="/listings">Extended listings <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item active border-right">
         <a class="nav-link" href="account">User Account <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
@@ -58,7 +59,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="login" placeholder="Login" aria-label="Login">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
     </form>
   </div>
 </nav>
@@ -91,22 +92,54 @@
 
     </div>
         <div class="col-sm-6 text-left container-fluid h-100">
-      <p>Lorem ipsum...</p>
-      <H2>Buys of the Week....</H2>
-      <ul><h3>
-          <li>MFST 1003 1/4 </li>
-          <li>HOG 1003 1/4 </li>
-          <li>TLSA 1003 1/4 </li>
-          <li>KALA 1003 1/4 </li>
-          <li>ROG 1003 1/4 </li>
-      </h3>
-
-      </ul>
-      <div><table border="0"><tr><td><a href="https://www.aistockcharts.com"><img src="https://www.aistockcharts.com/aistockchart.cgi?t=msft&bb=20,2&sma2=10&macd=12,26,9&rsi2=14" border="0"></a></td></tr><tr><td align="right"><a style="font-size: 10px; font-family: verdana; color: #000650" href="https://www.aistockcharts.com" target="_blank">Chart Courtesy AiStockCharts.com</a></td></tr></table></div>
+      <H2>Calls of the Week....</H2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Close</th>
+            <th>Volume</th>
+            <th>1= Buy<br>2= Sell</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= list[0].symbol%></td>
+            <td><%= list[0].close%></td>
+            <td><%= list[0].volume%></td>
+            <td><%= list[0].buy%></td>
+          </tr>
+          <tr>
+            <td><%= list[1].symbol%></td>
+            <td><%= list[1].close%></td>
+            <td><%= list[1].volume%></td>
+            <td><%= list[1].buy%></td>
+          </tr>
+          <tr>
+            <td><%= list[2].symbol%></td>
+            <td><%= list[2].close%></td>
+            <td><%= list[2].volume%></td>
+            <td><%= list[2].buy%></td>
+          </tr>
+          <tr>
+            <td><%= list[3].symbol%></td>
+            <td><%= list[3].close%></td>
+            <td><%= list[3].volume%></td>
+            <td><%= list[3].buy%></td>
+          </tr>
+          <tr>
+            <td><%= list[4].symbol%></td>
+            <td><%= list[4].close%></td>
+            <td><%= list[4].volume%></td>
+            <td><%= list[4].buy%></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="container-fluid"><table border="0"><tr><td><a href="https://www.aistockcharts.com"><img class="img-fluid" src="https://www.aistockcharts.com/aistockchart.cgi?t=<%=list[0].symbol%>&>bb=20,2&sma2=10&macd=12,26,9&rsi2=14" border="0"></a></td></tr><tr><td align="right"><a style="font-size: 10px; font-family: verdana; color: #000650" href="https://www.aistockcharts.com" target="_blank">Chart Courtesy AiStockCharts.com</a></td></tr></table></div>
     </div>
     <div class="col-sm-3 sidenav">
       <h4>This is what Trump means by Fake News</h4>
-       fgSDfDfDfDfDfDfdf
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi laboriosam doloremque eos vel, in excepturi laborum ducimus corporis? Molestiae perspiciatis quam, maxime excepturi facere eum adipisci ullam iusto praesentium corporis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt corrupti possimus alias nisi, corporis a quas aut nam consequuntur minima sequi nobis molestias accusantium dolor. Dolorem quidem praesentium optio iure?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus animi nulla optio totam, ullam consectetur aspernatur fuga provident ipsum? Totam inventore omnis voluptatibus numquam nesciunt asperiores aliquam soluta, ea fugit!
     </div>
   </div>
 </div>
