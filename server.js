@@ -18,21 +18,21 @@ app.get("/", function (req, res) {
     }
     let sorted=(JSON.parse(data));
   });
-  res.render("midnight",{  list: sorted } );
+  res.render("midnight",{  news: newsfeed, list: sorted } );
 });
 
 //midnight route
 app.get("/midnight", function (req, res) {
 
-  res.render("midnight.ejs", { news: newsfeed, list: sorted, ticker: tickString });
+  res.render("midnight.ejs", { list: sorted});
 });
 //listings route
 app.get("/listings", function (req, res) {
-  res.render("listings",{  list: sorted });
+  res.render("listings",{ list: sorted });
 });
 //accountabout route
 app.get("/account", function (req, res) {
-  res.render("account");
+  res.render("account" ,{ list: sorted });
 });
 //about route
 app.get("/about", function (req, res) {

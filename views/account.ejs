@@ -95,32 +95,100 @@
 <h4>Activity</h4><br>
   <div class="col-sm-12">
     <div class="well">
-     <p>      <ul>
-      <li>MFST 1003 1/4 </li>
-      <li>HOG 1003 1/4 </li>
-      <li>TLSA 1003 1/4 </li>
-      <li>KALA 1003 1/4 </li>
-      <li>ROG 1003 1/4 </li>
-  </ul></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Per Share</th>
+            <th>Value</th>
+            <th>Shares<br>(x100)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= list[0].symbol%></td>
+            <td><%= list[0].close%></td>
+            <td><%= list[0].volume%></td>
+            <td><%= list[0].buy%></td>
+          </tr>
+          <tr>
+            <td><%= list[16].symbol%></td>
+            <td><%= list[16].close%></td>
+            <td><%= list[16].volume%></td>
+            <td><%= list[16].buy%></td>
+          </tr>
+          <tr>
+            <td><%= list[2].symbol%></td>
+            <td><%= list[2].close%></td>
+            <td><%= list[2].volume%></td>
+            <td><%= list[2].buy%></td>
+          </tr>
+          <tr>
+            <td><%= list[18].symbol%></td>
+            <td><%= list[18].close%></td>
+            <td><%= list[18].volume%></td>
+            <td><%= list[18].buy%></td>
+          </tr>
+          <tr>
+            <td><%= list[4].symbol%></td>
+            <td><%= list[4].close%></td>
+            <td><%= list[4].volume%></td>
+            <td><%= list[4].buy%></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="well">
-     <p>Some text..</p>
     </div>
   </div>
   <span class=" w-100 border border-dark"></span>
   <h4>Holdings</h4><br>
   <div class="col-sm-12">
   <div class="well">
-     <p>      <ul>
-      <li>MFST 1003 1/4 </li>
-      <li>HOG 1003 1/4 </li>
-      <li>TLSA 1003 1/4 </li>
-      <li>KALA 1003 1/4 </li>
-      <li>ROG 1003 1/4 </li>
-  </ul></p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Per Share</th>
+          <th>Value</th>
+          <th>Shares<br>(x100)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= list[6].symbol%></td>
+          <td><%= list[6].close%></td>
+          <td><%= list[6].volume%></td>
+          <td><%= list[6].buy%></td>
+        </tr>
+        <tr>
+          <td><%= list[8].symbol%></td>
+          <td><%= list[8].close%></td>
+          <td><%= list[8].volume%></td>
+          <td><%= list[8].buy%></td>
+        </tr>
+        <tr>
+          <td><%= list[10].symbol%></td>
+          <td><%= list[10].close%></td>
+          <td><%= list[10].volume%></td>
+          <td><%= list[10].buy%></td>
+        </tr>
+        <tr>
+          <td><%= list[12].symbol%></td>
+          <td><%= list[12].close%></td>
+          <td><%= list[12].volume%></td>
+          <td><%= list[12].buy%></td>
+        </tr>
+        <tr>
+          <td><%= list[14].symbol%></td>
+          <td><%= list[14].close%></td>
+          <td><%= list[14].volume%></td>
+          <td><%= list[14].buy%></td>
+        </tr>
+      </tbody>
+    </table>
     </div>
     <div class="well">
-     <p>Some text..</p>
     </div>
   </div>
 </div>

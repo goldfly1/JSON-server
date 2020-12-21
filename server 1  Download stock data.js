@@ -55,10 +55,10 @@ var options = {
 
 
 axios.request(options).then(function (response) {
-  write(JSON.stringify(response.data,null,2),Xsymbol+" KALE");
+  write(JSON.stringify(response.data,null,2),Xsymbol);
 
 
-  console.log("Hello Hello");
+  console.log(Xsymbol);
   /*for (x=0;x < (response.data.values.length);x++){
       objArray[x]=Object.assign(response.data.meta, response.data.values[x]);
       console.log(objArray[x]);
@@ -98,16 +98,7 @@ console.log(objArray[x] +"kale was here");
 
 
 //function ticker(symbol,open,last){
-  function stockTicker(){
 
-    for (x=0;;x++){
-      tickString=objArray[0,x] +"  "+objArray[0,x+1]+"  "+objArray[0,x+2]+"  "+objArray[0,x]+"  "+objArray[0,x+4]+"  "+objArray[0,x+5];
-      if (x=objArray.length - 1){
-        x=0;
-      }writeThis
-    }
-
-  }
   //stockTicker();
   /*it's a string crawling across the div when it gets long enough start clipping off it's nose*/
 
@@ -159,7 +150,7 @@ console.log(objArray[x] +"kale was here");
          Run the ticker use a string;
   }*/
   function write(writeThis,filename){
-  fs.writeFileSync(filename+'.json', writeThis, function(err) {
+  fs.writeFileSync("/data2/"+filename+'.json', writeThis, function(err) {
     if (err) {
        return console.error(err);
     }
