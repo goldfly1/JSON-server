@@ -18,7 +18,7 @@ app.get("/", function (req, res) {
     }
     let sorted=(JSON.parse(data));
   });
-  res.render("midnight",{  news: newsfeed, list: sorted } );
+  res.render("midnight",{ list: sorted } );
 });
 
 //midnight route
