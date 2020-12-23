@@ -27,33 +27,29 @@ app.listen(port, function () {
 });
 
 // These 4 items will be inputs from DB/user
-let symbolArray=['AAPL']//, 'AMZN', 'IBM', 'MSFT', 'AI', 'TSLA', 'HOG', 'FFIV', 'HELE', 'KALA', 'ROG']
+let symbolArray=['AAPL', 'AMZN', 'IBM', 'MSFT', 'AI', 'TSLA', 'ROG', 'FFIV', 'HELE', 'KALA', 'HOG']
 let Xsymbol ;
 let Xinterval = "1day";
 let Xoutputsize = 30;
+let dataArray= [];
+let x =0;
 
-for(Xsymbol of symbolArray){
-  Xsymbol;
-  console.log(Xsymbol +" kale");
-  Xinterval = "1day";
-  Xoutputsize = 30;
+function getData() {axios.request(options).then(function (response) {
 
+    dataArray.push(response.data)
 
-var options = {
-  method: 'GET',
-  url: 'https://twelve-data1.p.rapidapi.com/time_series',
-  //'AAPL, AMZN, IBM, MSFT, AI, TSLA, HOG, FFIV, HELE, KALA, ROG'
-  params: {symbol: Xsymbol, interval: Xinterval, outputsize: Xoutputsize, format: 'json'},
-  headers: {
-    'x-rapidapi-key': '30b20b11demshf65fd60638895c6p17e8ccjsn0b391d09b80f',
-    'x-rapidapi-host': 'twelve-data1.p.rapidapi.com'
-  }
-};
+  if (symbolArray.length===dataArray.length){
+    for (Xsymbol of dataArray){
+  fs.writeFileSync("./data/"+Xsymbol.meta.symbol+".json", JSON.stringify(Xsymbol,null,2), function(err) {
 
-
-axios.request(options).then(function (response) {
-  write(JSON.stringify(response.data,null,2),Xsymbol);
-
+  if (err) {
+       return console.error(err);
+    }
+    console.log("Data written successfully!");
+       if (err) {
+          return console.error(err);
+       }
+      });}}
 
   console.log(Xsymbol);
 
@@ -65,7 +61,7 @@ axios.request(options).then(function (response) {
 
 
   function write(writeThis,filename){
-  fs.writeFileSync("./data/"+filename+'.json', writeThis, function(err) {
+  fs.writeFile("./data/"+filename+'.json', writeThis, function(err) {
     if (err) {
        return console.error(err);
     }
@@ -75,3 +71,24 @@ axios.request(options).then(function (response) {
        }
       });
   }
+
+
+  for(Xsymbol of symbolArray){
+    Xsymbol;
+    console.log(Xsymbol +" kale");
+    Xinterval = "1day";
+    Xoutputsize = 30;
+  
+  
+  var options = {
+    method: 'GET',
+    url: 'https://twelve-data1.p.rapidapi.com/time_series',
+    params: {symbol: Xsymbol, interval: Xinterval, outputsize: Xoutputsize, format: 'json'},
+    headers: {
+      'x-rapidapi-key': '30b20b11demshf65fd60638895c6p17e8ccjsn0b391d09b80f',
+      'x-rapidapi-host': 'twelve-data1.p.rapidapi.com'
+    }
+  };
+ getData();
+
+}
